@@ -82,7 +82,7 @@ innertopmargin=\topskip,
 \newcommand\course{Materials, Sensors, Actuators & Fabrication in Robotics}  
 \newcommand\hwnumber{ME5410}
 \newcommand\teamnumber{Team 11}
-\newcommand\Information{Name (ID): Bai Chengxi(), Cao Chenyu(), Hao Yuqi(), Li Zhangjin(), Miao Chenhui(), Zhou Yinhong()}                        % <-- personal information
+\newcommand\Information{Name (ID): \\Bai Chengxi (A0285113L), \\Cao Chenyu (A0285295N), \\Hao Yuqi (A0285022M), \\Li Zhangjin (A0285091B), \\Miao Chenhui (A0285263Y), \\Zhou Yinhong (A0285200R)}                        % <-- personal information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Page setup
@@ -208,18 +208,11 @@ The mini review on the features of existing chess-playing robots has highlighted
     \item \textbf{Linear X, Y, and Z-Axis Movement}: These robots typically have three degrees of freedom, corresponding to the X, Y, and Z axes, with each axis being an independent motion unit that performs linear movements. This characteristic is part of the gantry robot design and helps to lessen the computational load on the control system.\cite{du2013compliance}\cite{gupta2015autonomous}
 
     \item \textbf{Rigid Gripper}: The end effector or gripper of these robots is usually constructed from rigid materials such as steel or alloys, providing stability when handling chess pieces. However, the rigidity also poses a safety risk to human operators, as body parts like fingers can be injured by the mechanical pressure exerted by the grippers.
+
+    \item \textbf{Soft-body Gripper}: Soft grippers in chess-playing robots bring increased safety, flexibility, and efficiency. Their gentle dexterity permits the handling of delicate pieces without damage, their soft composition minimizes safety risks during human interaction, and they contribute to greater productivity in automated processes\cite{terrile2021comparison, zaidi2021actuation}.
 \end{enumerate}
 
 The specifics of these features can vary between different chess-playing robots, but the overarching principles of gantry structure, linear movement, and robust grippers seem to be common in their design to ensure precise and efficient play against human opponents.
-
-For further detailed information and technical specifications, it is recommended to review the cited sources and explore the references provided within them, such as technical papers and project repositories.
-
-\subsection{Material}
-In this course, the main robot materials used include the following: metal materials, polymer materials, ceramic materials, and composite materials.
-
-Robots are crafted using metals like aluminum, steel, titanium, and copper for their robustness, forming key elements like skeletons and gears. Ceramics, such as aluminum oxide and silicon nitride, cater to high-temperature and chemically demanding parts like sensors. For lightweight, high-strength components, composites like carbon fiber are employed, merging multiple material benefits into robot structures.\cite{nelson_csc297_materials}
-
-Polymer materials have lightweight, plasticity, and insulation properties, making them commonly used in robot casings, covers, and sensor packaging. They are used as materials for the shell and soft gripper of chess robots. The ABS plastic used in the shell is a common robot material that has advantages in weight, safety, durability, and other aspects. Soft pneumatic actuators (SPAs) are engineered to replicate human muscular structures, necessitating materials with high elasticity and resilience\cite{Rus2015}. Silicon rubber, polyurethane, fluor elastomers and thermoplastic elastomers are typical examples of elastomers in use.  Elastomers, which have garnered significant research interest\cite{Moseley2016}, are commonly employed due to their elastic properties. Silicon rubber is favored for its versatility and endurance, especially in applications demanding substantial stretch and adaptability\cite{Xavier2022}.
 
 \begin{figure}
     \centering
@@ -227,6 +220,13 @@ Polymer materials have lightweight, plasticity, and insulation properties, makin
     \caption{advantages of soft-body grippers}
     \label{fig:advantages of soft-body grippers}
 \end{figure}
+
+\subsection{Material}
+In this course, the main robot materials used include the following: metal materials, polymer materials, ceramic materials, and composite materials.
+
+Robots are crafted using metals like aluminum, steel, titanium, and copper for their robustness, forming key elements like skeletons and gears. Ceramics, such as aluminum oxide and silicon nitride, cater to high-temperature and chemically demanding parts like sensors. For lightweight, high-strength components, composites like carbon fiber are employed, merging multiple material benefits into robot structures.\cite{nelson_csc297_materials}
+
+Polymer materials have lightweight, plasticity, and insulation properties, making them commonly used in robot casings, covers, and sensor packaging. They are used as materials for the shell and soft gripper of chess robots. The ABS plastic used in the shell is a common robot material that has advantages in weight, safety, durability, and other aspects. Soft pneumatic actuators (SPAs) are engineered to replicate human muscular structures, necessitating materials with high elasticity and resilience\cite{Rus2015}. Silicon rubber, polyurethane, fluor elastomers and thermoplastic elastomers are typical examples of elastomers in use.  Elastomers, which have garnered significant research interest\cite{Moseley2016}, are commonly employed due to their elastic properties. Silicon rubber is favored for its versatility and endurance, especially in applications demanding substantial stretch and adaptability\cite{Xavier2022}.
 
 \subsection{Fabrication}
 The manufacturing process of chess-playing robots, particularly in the context of forming and assembly, has been augmented significantly with advancements in robotics and AI. For instance, Machina Labs in California utilizes AI and robotics to transform the sheet-forming industry. Their systems, featuring two 7-axis arms, enable the forming of metal sheets with remarkable precision and efficiency\cite{Khalid2023}. The comprehensive system autonomously manages loading, forming, scanning, cutting, finishing, and unloading, catering to the production of complex parts with high quality and repeatability, crucial for sectors like aerospace and automotive. These advancements result in shorter lead times, as the robots can operate continuously without the need for design-specific tooling or manual supervision\cite{harfoush2021application}.
@@ -237,13 +237,20 @@ Incorporating these insights, the mini-review on the fabrication of chess robots
 
 \section{Introduction to Principles}
 \subsection{Transmission Principle}
-The chess-playing robot mainly consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector. Other components include the motor and driving device. This robot, similar to existing three-coordinate gantry robots, features a "gate"-shaped frame as its supporting structure, providing ample stability and workspace, convenient for chessboard setup and player operation. The sliding rails mounted on the frame allow the end effector to move along three spatial axes (X, Y, Z axes).
+The chess-playing robot mainly consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector. Other components include the motor and driving device. This robot, similar to existing three-coordinate gantry robots, features a "gate"-shaped frame as its supporting structure, providing ample stability and workspace, convenient for chessboard setup and player operation. The sliding rails mounted and a screw structure on the frame allow the end effector to move along three spatial axes (X, Y, Z axes).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{final design.png}
+    \caption{final design of chess playing robot}
+    \label{fig:final design}
+\end{figure}
 
 The robot's moving mechanism is driven by a synchronous belt linear drive module, which consists of a synchronous belt, sliding rails and blocks, drive and driven wheels, an electric motor, brackets, and fasteners.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{schematic diagram.jpg}
+    \includegraphics[width=0.5\linewidth]{schematic diagram.png}
     \caption{schematic diagram of "gate"-shaped frame}
     \label{fig:schematic diagram}
 \end{figure}
@@ -290,19 +297,19 @@ Due to the need for high positioning accuracy and repeatability in moving to the
 \subsection{Grasping Principle}
 The grasping principle of a pneumatic soft robotic arm involves the transformation of air pressure into mechanical movement to achieve object manipulation. This process is typically realized through an end effector designed to mimic the adaptive grip of human fingers but using soft, flexible materials.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=0.3\linewidth]{grasping chess.png}
-\caption{The principle of grasping a chess piece is demonstrated by the strategic inflation of the soft chambers within the arm, allowing for a gentle yet firm grip that conforms to the shape of the object.}
+\caption{The principle of grasping a chess piece}
 \label{fig:grasping_chess}
 \end{figure}
 
 In Figure \ref{fig:grasping_chess}, we see an example of a soft robotic end effector as it engages with a chess piece. The end effector's design allows for a controlled grasp, which is essential for handling objects of various sizes and fragility without causing damage. The inflation of the arm's chambers is carefully calibrated to exert just enough force to hold the piece securely without crushing it.
 
-\begin{figure}[H]
+\begin{figure}
 \centering
 \includegraphics[width=0.3\linewidth]{end effector.png}
-\caption{This figure illustrates the end effector structure, highlighting the flexible bladders or chambers that expand upon pneumatic actuation to engage with and encompass the object to be grasped.}
+\caption{the end effector structure}
 \label{fig:end_effector}
 \end{figure}
 
@@ -316,9 +323,16 @@ This report delineates the principal components of the control system for a ches
 
 \begin{itemize}
     \item \textbf{Visual Recognition}: Employing cameras, the system captures the chessboard state, determining piece positions and possible moves. Image processing, potentially enhanced by multiple camera angles, discerns piece types and checks for human interaction to enhance safety.
-    \item \textbf{Sensors}: A suite of sensors, including motion vectors and force detectors on the robot's effector, provides environmental feedback and interaction status, ensuring correct piece manipulation and human safety.
+    \item \textbf{Sensors}: As shown in Fig. \ref{fig:sensor position}, the motion vector sensor is installed on the lower surface of the end effector to detect if there is a human body part moving below the effector and how far it is; the force sensor is installed on the effector’s internal surface of the soft part to get the bearing force to judge whether the piece is caught successfully.
     \item \textbf{Computational Analysis}: The integration of software and machine learning algorithms processes visual data, improving recognition efficiency and adjusting to varying game setups.
 \end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{sensor position.png}
+    \caption{the location of sensors}
+    \label{fig:sensor position}
+\end{figure}
 
 \subsection{Actuator System}
 
@@ -369,56 +383,22 @@ For the internal soft pneumatic actuator, we choose to use Eco-flex, a highly el
 
 As depicted in Fig. \ref{fig:final design}, we present the finalized design of the chess-playing robot. The manufacturing methodologies for the robot will be delineated separately for its frame structure and the end effector:
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\linewidth]{final design.png}
-    \caption{final design of chess playing robot}
-    \label{fig:final design}
-\end{figure}
-
 \subsection{Frame Stucture}
-The frame part of the robot is made of aluminum alloy, and this part is chosen to be produced through casting. Casting offers flexibility in production: it can produce complex-shaped aluminum alloy parts and is suitable for large-scale batch production, making it an excellent choice.
+The frame part of the robot is made of aluminum alloy, and this part is chosen to be produced through casting. Casting offers flexibility in production: it can produce complex-shaped aluminum alloy parts and is suitable for large-scale batch production, making it an excellent choice
+The flow chart of the entire manufacturing process is shown in Figure. \ref{fig:Casting process for frame structures}
+
+\begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{casting.png}
+        \caption{Enter Caption}
+        \label{fig:Casting process for frame structures}
+\end{figure}
 
 \subsection{End Effector}
 As mentioned earlier, the end effector consists of two parts: an external rigid structure and an internal soft actuator. Both of these structural parts are chosen to be completed through injection molding. Injection molding not only has a fast manufacturing speed and low processing cost but is also more conducive to post-processing after production, making it suitable for mass production.
 
-\section{Manufacturing Process Flow}
-\subsection{Production of the Frame Structure}
-\begin{itemize}
-    \item \textbf{Preparation of Casting Process}: This includes selecting the appropriate casting method (such as sand casting, die casting, low-pressure casting, etc.), and preparing the relevant casting equipment and materials.
-    \item \textbf{Design and Manufacture of Molds}: Design the mold according to the requirements of the cast part. Molds are usually made of heat-resistant materials that can withstand the high temperatures of aluminum alloy.
-    \item \textbf{Melting the Aluminum Alloy}: Heat the aluminum alloy raw material in a furnace to a molten state (660°C to 800°C). This process may involve adding some alloying elements to adjust the material's properties.
-    \item \textbf{Pouring}: Remove the molten aluminum alloy from the furnace and pour it into the pre-prepared molds (heated to 200°C to 250°C). This process requires controlling the temperature (680°C to 760°C) and flow rate of the molten aluminum alloy to ensure the quality of the casting.
-    \item \textbf{Solidification and Cooling}: The aluminum alloy solidifies in the mold. During this process, the volume of the aluminum alloy will shrink, so this must be considered in the mold design.
-    \item \textbf{Demolding and Cleaning}: After the aluminum alloy has completely cooled, remove it from the mold. It may be necessary to remove excess parts such as gates and risers, and to clean and polish the surface.
-    \item \textbf{Heat Treatment and Post-Processing}: If necessary, heat treat the casting to improve its mechanical properties. Additionally, surface treatments such as painting or anodizing may be performed to enhance corrosion resistance and appearance.
-    \item \textbf{Inspection and Quality Control}: Inspect the casting for dimensions, appearance, and performance to ensure it meets design specifications.
-\end{itemize}
+The manufacturing method of the soft structure inside the actuator is described here in detail.
 
-\subsection{Production of the End Effector Shell}
-
-\subsubsection{Preparation Stage}
-\begin{itemize}
-    \item \textbf{Material Selection}: Choose suitable ABS material for the product application, which may include different additives to improve performance.
-    \item \textbf{Dry the Raw Material}: ABS pellets typically need to be dried before injection molding to remove moisture, preventing bubbles or other defects during molding.
-\end{itemize}
-
-\subsubsection{Injection Molding Stage}
-\begin{itemize}
-    \item \textbf{Preheat the Machine}: Start the injection molding machine and set the appropriate temperature and pressure parameters. The typical processing temperature range for ABS is between 200°C and 280°C.
-    \item \textbf{Injection Molding}: Heat the ABS to a molten state and inject it under high pressure into the preheated mold cavity.
-    \item \textbf{Demolding}: After cooling, open the mold and eject or remove the formed part with a mechanical arm.
-\end{itemize}
-
-\subsubsection{Post-Processing Stage}
-\begin{itemize}
-    \item \textbf{Deburring}: Remove residual parts of the runner system and burrs, which can be done manually or mechanically. For batch production, we choose a mechanical removal method - using specialized trimming machines or other mechanical equipment to automatically remove burrs. These devices can trim the burrs of a large number of products quickly and accurately, but require a relatively high initial investment in machinery.
-    \item \textbf{Secondary Processing}: Perform drilling, milling, or cutting, etc.
-    \item \textbf{Surface Treatment}: Such as painting, screen printing, or gold plating. Due to certain wear resistance requirements, we choose Physical Vapor Deposition (PVD) - applying a thin metal film to improve wear resistance and decoration.
-    \item \textbf{Inspection and Testing}: Check dimensional accuracy, appearance, and physical properties to ensure product quality.
-\end{itemize}
-
-\subsection{Production of the Soft Actuator}
 As is shown in Fig. \ref{fig:demolding_assembly}, four main processes are involved in soft actuator production.
 \begin{itemize}
     \item \textbf{Design and Mold Creation}: Design the mold model of the soft robot on a computer, and then carry out 3D printing.
@@ -443,17 +423,25 @@ By injecting air into the middle cavity, the soft structure expands from flat to
     \label{fig:process of injecting air}
 \end{figure}
 
+
+
 \section{Assembly}
-The focus of this project is on the end effector of this robot, so the emphasis here is on how it is assembled.
-
-The outer shell and the soft structure of the end effector are bonded together using glue. Small holes are drilled in the shell of the end effector, which leads to grooves in the inner wall. Glue can be injected through these holes into the grooves, allowing the internal soft structure to be combined with the outer shell.
-
+The assembly of the whole chess-playing robot is divided into two parts to be carried out separately, the first part is the assembly of the frame mechanism, the slide moving mechanism, and the screw structure, which is assembled by traditional mechanical assembly, such as thread fastening, welding, bayonet connection, thread tapping, or pin and key connection.We also hope to improve the design and manufacture of the sensor part in the future.
+The second part is the assembly of the end-effector. The housing of the end-effector and the flexible structure are glued together. Small holes are cut into the housing of the end-effector, which leads to slots in the inner wall, through which glue can be injected into the slots so that the inner flexible structure can be bonded to the housing.
 \begin{figure}
     \centering
     \includegraphics[width=0.8\linewidth]{end effector assembly.png}
     \caption{end effector assembly}
     \label{fig:end effector assembly}
 \end{figure}
+
+\section{Future Plan}
+Due to time constraints, the project is not very well developed, and only provides an idea in the general direction of improving the safety of chess-playing robots. Some of the more detailed issues have not been perfected, in the future, we hope to improve the following issues.
+
+In terms of structural design, we hope to analyze the mechanical strength of the corresponding load-bearing mechanism, improve the specific assembly problems between the various components, and at the same time carry out the selection of the corresponding synchronous belt and motor to further improve our transmission scheme.
+
+In terms of software, the content of the software program mentioned in the report is developed. As for the realization of chess playing, since chess has the action of flipping the pieces in the process of chess playing, this action was not realized on our robot due to the lack of a suitable transmission mechanism. We hope that this problem can be solved in the future.
+
 
 \bibliographystyle{plain}
 \bibliography{ref}
