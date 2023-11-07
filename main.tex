@@ -189,7 +189,7 @@ This report explores strategies for optimizing chess-playing robots from multipl
 These measures aim to significantly improve the safety of chess-playing robots, ensuring smooth and secure human-robot interaction.
 \end{abstract}
 
-\section{Mini Review}
+\section{Mini Review in Chess-Playing Robots}
 
 \subsection{Actuators in Chess-Playing Robots}
 For actuators, high-torque DC motors, precision step motors, and servo motors are crucial for accurate and controlled movements. They are used in designs such as the custom mid-cost 6-DoF (Degrees of Freedom) manipulator system called Gambit, which is capable of playing in non-idealized environments\cite{Gambit}. Another instance is the SCARA robot arm analyzed for its mechanical design and control algorithms to execute chess moves\cite{anh2016design}. The use of electromagnets to move pieces from underneath has also been documented, providing a different approach to piece manipulation\cite{chess_playing_robot_vub}.
@@ -288,21 +288,25 @@ Due to the need for high positioning accuracy and repeatability in moving to the
 \end{figure}
 
 \subsection{Grasping Principle}
-The end effector consists of two parts: the outer shell base and the internal soft pneumatic actuation unit. The base part is a hollow cylindrical structure that serves to constrain the shape of the soft pneumatic part. The main grasping action is accomplished by the pneumatic unit, which has multiple air bubbles uniformly distributed in a dot matrix inside. These bubbles are driven by a pneumatic device. When the pneumatic device inflates, the bubbles expand, thereby gripping the chess piece to achieve grasping. The reason for choosing pneumatics as the driving principle is straightforward: on one hand, it can be used to drive the designed soft grasping device; on the other hand, it can respond quickly and provide significant force, making it very suitable for grasping chess pieces.
+The grasping principle of a pneumatic soft robotic arm involves the transformation of air pressure into mechanical movement to achieve object manipulation. This process is typically realized through an end effector designed to mimic the adaptive grip of human fingers but using soft, flexible materials.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.3\linewidth]{grasping chess.png}
-    \caption{principle of grasping chess}
-    \label{fig:grasping chess}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\linewidth]{grasping chess.png}
+\caption{The principle of grasping a chess piece is demonstrated by the strategic inflation of the soft chambers within the arm, allowing for a gentle yet firm grip that conforms to the shape of the object.}
+\label{fig:grasping_chess}
 \end{figure}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.3\linewidth]{end effector.png}
-    \caption{end effector structure}
-    \label{fig:end effector}
+In Figure \ref{fig:grasping_chess}, we see an example of a soft robotic end effector as it engages with a chess piece. The end effector's design allows for a controlled grasp, which is essential for handling objects of various sizes and fragility without causing damage. The inflation of the arm's chambers is carefully calibrated to exert just enough force to hold the piece securely without crushing it.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.3\linewidth]{end effector.png}
+\caption{This figure illustrates the end effector structure, highlighting the flexible bladders or chambers that expand upon pneumatic actuation to engage with and encompass the object to be grasped.}
+\label{fig:end_effector}
 \end{figure}
+
+Figure \ref{fig:end_effector} showcases the detailed structure of the end effector. The design often includes several chambers that can be independently inflated to adjust the shape and stiffness of the arm, allowing for a versatile gripping capability. This modularity in design makes it possible for the robotic arm to perform a wide range of tasks by changing the pattern of inflation to suit the specific object and task requirements.
 
 \section{Control Principle}
 
@@ -333,13 +337,6 @@ On the other hand, visual sensors and image recognition software are used to ens
 When selecting materials for manufacturing robots, considering the application scenarios and functional requirements, the commonly used materials include several categories: metals, plastics and synthetic materials, composite materials, flexible materials, and smart materials.
 
 For this project's chess-playing robot, which primarily consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector, we decided to choose materials according to the different parts of the robot.
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\linewidth]{material selection.jpg}
-    \caption{process of material selection}
-    \label{fig:process of material selection}
-\end{figure}
 
 \subsection{Frame Structure and Sliding Rail Moving Mechanism}
 We have chosen to use aluminum alloy for the frame structure and sliding rail moving mechanism, as aluminum alloy has the following advantages compared to other materials:
@@ -433,7 +430,7 @@ As is shown in Fig. \ref{fig:demolding_assembly}, four main processes are involv
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{demolding and assembly.png}
-    \caption{process of demolding and assembly}
+    \caption{process of demolding}
     \label{fig:demolding_assembly}
 \end{figure}
 
@@ -451,7 +448,12 @@ The focus of this project is on the end effector of this robot, so the emphasis 
 
 The outer shell and the soft structure of the end effector are bonded together using glue. Small holes are drilled in the shell of the end effector, which leads to grooves in the inner wall. Glue can be injected through these holes into the grooves, allowing the internal soft structure to be combined with the outer shell.
 
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{end effector assembly.png}
+    \caption{end effector assembly}
+    \label{fig:end effector assembly}
+\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{ref}
