@@ -194,17 +194,11 @@ Advanced systems may also incorporate artificial neural networks for enhanced ef
 The mini review on the features of existing chess-playing robots has highlighted some common characteristics and functionalities:
 
 \begin{enumerate}
-    \item \textbf{Gantry Structure}:
-    \begin{itemize}
-        \item Chess-playing robots often employ a gantry structure due to its simplicity and accuracy in control. This structure is less complex than that of a mechanical arm, reducing the degrees of freedom and simplifying the control calculations and mathematical models.\cite{rao2023robot}
-        \item An example of this is a system created by a student from Rose-Hulman Institute of Technology, which is a cube-shaped frame made from aluminum extrusions with a chessboard at its base.\cite{arduino2021chessrobot}
-    \end{itemize}
+    \item \textbf{Gantry Structure}:Chess-playing robots often employ a gantry structure due to its simplicity and accuracy in control. This structure is less complex than that of a mechanical arm, reducing the degrees of freedom and simplifying the control calculations and mathematical models.\cite{rao2023robot}
     
-    \item \textbf{Linear X, Y, and Z-Axis Movement}:
-    \begin{itemize}
-        \item These robots typically have three degrees of freedom, corresponding to the X, Y, and Z axes, with each axis being an independent motion unit that performs linear movements. This characteristic is part of the gantry robot design and helps to lessen the computational load on the control system.\cite{du2013compliance}
-        \item Specific implementations of this design use PVC slabs for the X and Y tracks and lead screws powered by stepper drivers for movement.\cite{baichtal2017chess}
-    \end{itemize}
+    \item \textbf{Linear X, Y, and Z-Axis Movement}: These robots typically have three degrees of freedom, corresponding to the X, Y, and Z axes, with each axis being an independent motion unit that performs linear movements. This characteristic is part of the gantry robot design and helps to lessen the computational load on the control system.\cite{du2013compliance}\cite{gupta2015autonomous}
+
+    \item \textbf{Rigid Gripper}: The end effector or gripper of these robots is usually constructed from rigid materials such as steel or alloys, providing stability when handling chess pieces. However, the rigidity also poses a safety risk to human operators, as body parts like fingers can be injured by the mechanical pressure exerted by the grippers.
 \end{enumerate}
 
 The specifics of these features can vary between different chess-playing robots, but the overarching principles of gantry structure, linear movement, and robust grippers seem to be common in their design to ensure precise and efficient play against human opponents.
@@ -214,11 +208,7 @@ For further detailed information and technical specifications, it is recommended
 \subsection{Material}
 In this course, the main robot materials used include the following: metal materials, polymer materials, ceramic materials, and composite materials.
 
-Metal materials are commonly used to manufacture the structure and key mechanical components of robots because they have excellent strength and durability. Common metal materials include aluminum, steel, titanium, and copper. These materials can be used to construct the skeleton, joints, gears, and other mechanical components of robots, providing the stability and reliability required for robots. 
-
-Ceramic materials have excellent high-temperature resistance and chemical stability, making them suitable for thermal components, pneumatic actuators, and sensors of robots. Aluminum oxide ceramics, silicon nitride ceramics, and silicon carbide ceramics are common choices that can be used to manufacture robots operating in high-temperature environments. 
-
-Composite materials are composed of two or more different materials combined to integrate the advantages of various materials. This makes them very suitable for manufacturing lightweight and high-performance robot components. Carbon fiber composite materials, glass fiber composite materials, and organic matrix composite materials can be used to manufacture robot skeletons, arms, and other structural components.
+Robots are crafted using metals like aluminum, steel, titanium, and copper for their robustness, forming key elements like skeletons and gears. Ceramics, such as aluminum oxide and silicon nitride, cater to high-temperature and chemically demanding parts like sensors. For lightweight, high-strength components, composites like carbon fiber are employed, merging multiple material benefits into robot structures.\cite{nelson_csc297_materials}
 
 Polymer materials have lightweight, plasticity, and insulation properties, making them commonly used in robot casings, covers, and sensor packaging. They are used as materials for the shell and soft gripper of chess robots. The ABS plastic used in the shell is a common robot material that has advantages in weight, safety, durability, and other aspects. Soft pneumatic actuators (SPAs) are engineered to replicate human muscular structures, necessitating materials with high elasticity and resilience\cite{Rus2015}. Silicon rubber, polyurethane, fluor elastomers and thermoplastic elastomers are typical examples of elastomers in use.  Elastomers, which have garnered significant research interest\cite{Moseley2016}, are commonly employed due to their elastic properties. Silicon rubber is favored for its versatility and endurance, especially in applications demanding substantial stretch and adaptability\cite{Xavier2022}.
 
@@ -230,15 +220,11 @@ Polymer materials have lightweight, plasticity, and insulation properties, makin
 \end{figure}
 
 \subsection{Fabrication}
-The manufacturing process is a key link in manufacturing various products, which can usually be divided into two categories: forming and assembly.
+The manufacturing process of chess-playing robots, particularly in the context of forming and assembly, has been augmented significantly with advancements in robotics and AI. For instance, Machina Labs in California utilizes AI and robotics to transform the sheet forming industry. Their systems, featuring two 7-axis arms, enable the forming of metal sheets with remarkable precision and efficiency\cite{Khalid2023}. The comprehensive system autonomously manages loading, forming, scanning, cutting, finishing, and unloading, catering to the production of complex parts with high quality and repeatability, crucial for sectors like aerospace and automotive. These advancements result in shorter lead times, as the robots can operate continuously without the need for design-specific tooling or manual supervision\cite{harfoush2021application}.
 
-Forming is the process of manufacturing materials or parts, which involves multiple different processes. The solidification process involves transforming materials from a liquid or powder state to a solid state. For example, resin is used in injection molding to form the desired shape of parts by melting and cooling. Particle processing typically involves cutting, grinding, or forming particles from the original material, and then combining them into the desired shape. This is often used in metal processing, powder metallurgy, and ceramic manufacturing. The deformation process includes methods such as cold and hot working of materials, as well as forging, to manufacture parts by changing the shape and structure of the material. For example, metal plates can be manufactured into various complex shaped parts through cold stamping. The material removal process includes CNC machine tools, milling machines, lathes, and electric discharge machining, which manufacture the specific shape of the part by removing the material. This method is applicable to materials such as metals, ceramics, and plastics.
+In assembly, the role of robotics has become increasingly pivotal. Modern robots are flexible, autonomous, and capable of performing with minimal human intervention. They handle material transfer, loading, and unloading tasks, with complex operations like organizing parts on pallets. Processing tasks performed by robots include welding and painting, with precise operation leading to improvements in quality and production costs. In the assembly and inspection processes, robots can batch-produce various styles of a product and are programmed to adapt to different designs, optimizing efficiency and reducing the need for skilled human labor. For instance, in the Tesla Gigafactory, Autonomous Indoor Vehicles (AIVs) operate spontaneously, moving items between workstations, showcasing the potential of collaborative systems where robots and humans work in tandem\cite{RobotsNet2019}.
 
-Assembly is the process of connecting various parts, components, or modules together to build the final product. In mechanical assembly, parts usually need to be fixed to each other through connections such as bolts, nuts, welding, or adhesives. This ensures a stable connection between the parts.
-
-Mechanical assembly can involve precise positioning, adjustment, and fixation to ensure the normal functionality of the product.
-
-Injection molding is the production process of the shell of a chess robot. As for the soft actuators, the advent of 3D printing technology has revolutionized the fabrication of elastomer molds\cite{Terryn2017}, allowing fast fabrication of elastomers. Researchers pour elastomer in liquid form into these molds, followed by a process of demolding and assembly to create the final product.
+Incorporating these insights, the mini-review on the fabrication of chess robots could be enhanced by emphasizing the role of advanced robotics in both forming and assembly stages, highlighting the benefits of precision, efficiency, and safety introduced by these technologies. This would not only give a comprehensive view of current practices but also shed light on the potential for future advancements in the field.
 
 \section{Introduction to Principles}
 \subsection{Transmission Principle}
@@ -250,7 +236,7 @@ This module exhibits the following characteristics:
 
 \begin{itemize}
     \item [1.] High Precision Positioning: The synchronous belt drive enables high precision positioning control, which is ideal for accurately positioning the end effector to the specific row or column of a chess piece on the board.
-    \item [2. ] Low Noise and Smooth Operation: Due to the smooth transmission of the synchronous belt, this drive module operates with low noise, meeting the environmental requirements for the activity of playing chess.
+    \item [2.] Low Noise and Smooth Operation: Due to the smooth transmission of the synchronous belt, this drive module operates with low noise, meeting the environmental requirements for the activity of playing chess.
     \item [3.] High Efficiency and Low Maintenance: The transmission efficiency of the synchronous belt is high, and unlike chain drives, it does not require regular lubrication, thus reducing maintenance needs.
     \item [4.] Customizability and Cost-Effectiveness: This module can be manufactured in various lengths and widths to meet different application needs. Compared to other types of linear drive systems (such as ball screw drives), the synchronous belt linear drive module is usually more economical, allowing for mass custom production.
 \end{itemize}
