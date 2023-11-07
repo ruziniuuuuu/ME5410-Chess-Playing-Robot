@@ -81,6 +81,7 @@ innertopmargin=\topskip,
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
 \newcommand\course{Materials, Sensors, Actuators & Fabrication in Robotics}  
 \newcommand\hwnumber{ME5410}
+\newcommand\teamnumber{Team 11}
 \newcommand\Information{Name: XXXX  \\ ID: XXXX}                        % <-- personal information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -152,7 +153,12 @@ innertopmargin=\topskip,
             
         \vspace{1.5cm}
         \Large
-            
+
+        \textbf{\teamnumber}
+        
+        \vspace{1.5cm}
+        \Large
+        
         \textbf{\Information}                      % <-- author
         
             
@@ -177,7 +183,7 @@ innertopmargin=\topskip,
 \begin{abstract}
 During a chess match, a young player was unexpectedly injured when the chess-playing robot, as the opponent, grabbed and squeezed their finger. This incident drew widespread attention, highlighting the growing integration of robotics into human life and the urgent need for systematic optimization of robots to reduce potential harm to humans. 
 
-This report explores strategies for optimizing chess-playing robots from multiple dimensions. Our research identifies two main risks: injuries from the robot's arm movement and accidental gripping of a human hand by the robot's end effector. To mitigate these risks, we propose optimizations in the robot's structural design and sensor detection. We reduced the robot's degrees of freedom, chose a high-precision gantry robot, and adjusted materials for a lightweight design. The end effector's structure was redesigned with a dual-layer of soft and hard materials, reducing injury risk during accidental contact. Additionally, sensors were embedded for environmental monitoring to enhance safety. 
+This report explores strategies for optimizing chess-playing robots from multiple dimensions. Our research identifies two main risks: injuries from the robot's arm movement and accidental gripping of a human hand by the robot's end effector. To mitigate these risks, we propose optimizations in the robot's structural design and sensor detection. We reduced the robot's degrees of freedom, chose a high-precision gantry robot, and adjusted materials for a lightweight design. The end effector's structure was redesigned with a dual layer of soft and hard materials, reducing injury risk during accidental contact. Additionally, sensors were embedded for environmental monitoring to enhance safety. 
 
 These measures aim to significantly improve the safety of chess-playing robots, ensuring smooth and secure human-robot interaction.
 \end{abstract}
@@ -222,11 +228,11 @@ Polymer materials have lightweight, plasticity, and insulation properties, makin
 \end{figure}
 
 \subsection{Fabrication}
-The manufacturing process of chess-playing robots, particularly in the context of forming and assembly, has been augmented significantly with advancements in robotics and AI. For instance, Machina Labs in California utilizes AI and robotics to transform the sheet forming industry. Their systems, featuring two 7-axis arms, enable the forming of metal sheets with remarkable precision and efficiency\cite{Khalid2023}. The comprehensive system autonomously manages loading, forming, scanning, cutting, finishing, and unloading, catering to the production of complex parts with high quality and repeatability, crucial for sectors like aerospace and automotive. These advancements result in shorter lead times, as the robots can operate continuously without the need for design-specific tooling or manual supervision\cite{harfoush2021application}.
+The manufacturing process of chess-playing robots, particularly in the context of forming and assembly, has been augmented significantly with advancements in robotics and AI. For instance, Machina Labs in California utilizes AI and robotics to transform the sheet-forming industry. Their systems, featuring two 7-axis arms, enable the forming of metal sheets with remarkable precision and efficiency\cite{Khalid2023}. The comprehensive system autonomously manages loading, forming, scanning, cutting, finishing, and unloading, catering to the production of complex parts with high quality and repeatability, crucial for sectors like aerospace and automotive. These advancements result in shorter lead times, as the robots can operate continuously without the need for design-specific tooling or manual supervision\cite{harfoush2021application}.
 
 In assembly, the role of robotics has become increasingly pivotal. Modern robots are flexible, autonomous, and capable of performing with minimal human intervention. They handle material transfer, loading, and unloading tasks, with complex operations like organizing parts on pallets. Processing tasks performed by robots include welding and painting, with precise operation leading to improvements in quality and production costs. In the assembly and inspection processes, robots can batch-produce various styles of a product and are programmed to adapt to different designs, optimizing efficiency and reducing the need for skilled human labor. For instance, in the Tesla Gigafactory, Autonomous Indoor Vehicles (AIVs) operate spontaneously, moving items between workstations, showcasing the potential of collaborative systems where robots and humans work in tandem\cite{RobotsNet2019}.
 
-Incorporating these insights, the mini-review on the fabrication of chess robots could be enhanced by emphasizing the role of advanced robotics in both forming and assembly stages, highlighting the benefits of precision, efficiency, and safety introduced by these technologies. This would not only give a comprehensive view of current practices but also shed light on the potential for future advancements in the field.
+Incorporating these insights, the mini-review on the fabrication of chess robots could be enhanced by emphasizing the role of advanced robotics in both the forming and assembly stages, highlighting the benefits of precision, efficiency, and safety introduced by these technologies. This would not only give a comprehensive view of current practices but also shed light on the potential for future advancements in the field.
 
 \section{Introduction to Principles}
 \subsection{Transmission Principle}
@@ -244,7 +250,7 @@ The robot's moving mechanism is driven by a synchronous belt linear drive module
 This module exhibits the following characteristics:
 
 \begin{itemize}
-    \item \textbf{High Precision Positioning}: The synchronous belt drive enables high precision positioning control, which is ideal for accurately positioning the end effector to the specific row or column of a chess piece on the board.
+    \item \textbf{High Precision Positioning}: The synchronous belt drive enables high-precision positioning control, which is ideal for accurately positioning the end effector to the specific row or column of a chess piece on the board.
     \item \textbf{Low Noise and Smooth Operation}: Due to the smooth transmission of the synchronous belt, this drive module operates with low noise, meeting the environmental requirements for the activity of playing chess.
     \item \textbf{High Efficiency and Low Maintenance}: The transmission efficiency of the synchronous belt is high, and unlike chain drives, it does not require regular lubrication, thus reducing maintenance needs.
     \item \textbf{Customizability and Cost-Effectiveness}: This module can be manufactured in various lengths and widths to meet different application needs. Compared to other types of linear drive systems (such as ball screw drives), the synchronous belt linear drive module is usually more economical, allowing for mass custom production.
@@ -269,17 +275,17 @@ This report delineates the principal components of the control system for a ches
 \subsection{Sensing System}
 
 \begin{itemize}
-    \item \textbf{Visual Recognition:} Employing cameras, the system captures the chessboard state, determining piece positions and possible moves. Image processing, potentially enhanced by multiple camera angles, discerns piece types and checks for human interaction to enhance safety.
-    \item \textbf{Sensors:} A suite of sensors, including motion vectors and force detectors on the robot's effector, provides environmental feedback and interaction status, ensuring correct piece manipulation and human safety.
-    \item \textbf{Computational Analysis:} The integration of software and machine learning algorithms processes visual data, improving recognition efficiency and adjusting to varying game setups.
+    \item \textbf{Visual Recognition}: Employing cameras, the system captures the chessboard state, determining piece positions and possible moves. Image processing, potentially enhanced by multiple camera angles, discerns piece types and checks for human interaction to enhance safety.
+    \item \textbf{Sensors}: A suite of sensors, including motion vectors and force detectors on the robot's effector, provides environmental feedback and interaction status, ensuring correct piece manipulation and human safety.
+    \item \textbf{Computational Analysis}: The integration of software and machine learning algorithms processes visual data, improving recognition efficiency and adjusting to varying game setups.
 \end{itemize}
 
 \subsection{Actuator System}
 
 \begin{itemize}
-    \item \textbf{Precision Motors:} Utilizing servo motors with integrated encoders, the robot achieves precise control over its mechanical movements, vital for accurate positioning of its components.
-    \item \textbf{Motor Control:} Advanced algorithms within the servo control system translate sensory inputs into meticulous motor operations, optimizing movement trajectories and exerted forces.
-    \item \textbf{Pneumatic Actuation:} The Pneumatic Control Unit, powered by a high power-density SIMILK DC 6V air pump, manages the robot's soft actuators. Coupled with proportional valves and precise pressure sensors, it ensures the smooth operation of the actuation system.
+    \item \textbf{Precision Motors}: Utilizing servo motors with integrated encoders, the robot achieves precise control over its mechanical movements, vital for accurate positioning of its components.
+    \item \textbf{Motor Control}: Advanced algorithms within the servo control system translate sensory inputs into meticulous motor operations, optimizing movement trajectories and exerted forces.
+    \item \textbf{Pneumatic Actuation}: The Pneumatic Control Unit, powered by a high power-density SIMILK DC 6V air pump, manages the robot's soft actuators. Coupled with proportional valves and precise pressure sensors, it ensures the smooth operation of the actuation system.
 \end{itemize}
 
 \subsection{Implementation of Safety}
@@ -290,7 +296,7 @@ On the other hand, visual sensors and image recognition software are used to ens
 \section{Material Selection}
 When selecting materials for manufacturing robots, considering the application scenarios and functional requirements, the commonly used materials include several categories: metals, plastics and synthetic materials, composite materials, flexible materials, and smart materials.
 
-For this project's chess-playing robot, which primarily consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector, we decide to choose materials according to the different parts of the robot.
+For this project's chess-playing robot, which primarily consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector, we decided to choose materials according to the different parts of the robot.
 
 \begin{figure}
     \centering
@@ -301,11 +307,12 @@ For this project's chess-playing robot, which primarily consists of three parts:
 
 \subsection{Frame Structure and Sliding Rail Moving Mechanism}
 We have chosen to use aluminum alloy for the frame structure and sliding rail moving mechanism, as aluminum alloy has the following advantages compared to other materials:
+
 \begin{itemize}
-    \item [1.] Lightweight: Aluminum alloy has low density and is lightweight, which means the constructed frame structure and sliding rail moving mechanism will be relatively light. For the chess-playing robot, which may need to be moved frequently, this imposes certain limitations on the overall weight of the robot. Moreover, if the robot is too heavy, the impulse of the moving arm will be relatively large, which could cause injury if it comes into contact with a person during movement. Therefore, choosing lightweight aluminum alloy as the primary material for its structure is a good choice.
-    \item [2.] High Strength: Despite its lightness, aluminum alloy has high strength and stiffness. The load of the chess-playing robot is relatively small, so using aluminum alloy meets the strength requirements of the robot well.
-    \item [3.] Good Machinability: Aluminum alloy is easy to process and shape. It can be processed into various shapes through cutting, welding, casting, and other methods, making it convenient to manufacture the structure.
-    \item [4.] Economical: Compared to other metal materials, the cost of aluminum alloy is relatively low, allowing for reduced manufacturing costs without sacrificing performance.
+    \item \textbf{Lightweight}: Aluminum alloy has a low density and is lightweight, which means the constructed frame structure and sliding rail moving mechanism will be relatively light. For the chess-playing robot, which may need to be moved frequently, this imposes certain limitations on the overall weight of the robot. Moreover, if the robot is too heavy, the impulse of the moving arm will be relatively large, which could cause injury if it comes into contact with a person during movement. Therefore, choosing lightweight aluminum alloy as the primary material for its structure is a good choice.
+    \item \textbf{High Strength}: Despite its lightness, aluminum alloy has high strength and stiffness. The load of the chess-playing robot is relatively small, so using aluminum alloy meets the strength requirements of the robot well.
+    \item \textbf{Good Machinability}: Aluminum alloy is easy to process and shape. It can be processed into various shapes through cutting, welding, casting, and other methods, making it convenient to manufacture the structure.
+    \item \textbf{Economical}: Compared to other metal materials, the cost of aluminum alloy is relatively low, allowing for reduced manufacturing costs without sacrificing performance.
 \end{itemize}
 
 \subsection{End Effector}
@@ -313,17 +320,16 @@ The end effector of the chess-playing robot consists of two parts: the outer she
 
 We have decided to use ABS to make the base part of the outer shell. ABS material has several advantages over other materials:
 \begin{itemize}
-    \item [1.] Raw Material Cost: The price of ABS plastic is generally lower than that of most metal materials, especially high-performance metals like aluminum alloys or stainless steel.
-    \item [2.] Manufacturing Speed: Injection molding can rapidly produce a large number of parts, significantly increasing production efficiency and reducing unit costs.
-    \item [3.] Ease of Assembly: ABS parts are usually easier to assemble because they can be designed with snaps, joints, etc., without the need for welding or complex machining
+    \item \textbf{Raw Material Cost}: The price of ABS plastic is generally lower than that of most metal materials, especially high-performance metals like aluminum alloys or stainless steel.
+    \item \textbf{Manufacturing Speed}: Injection molding can rapidly produce a large number of parts, significantly increasing production efficiency and reducing unit costs.
+    \item \textbf{Ease of Assembly}: ABS parts are usually easier to assemble because they can be designed with snaps, joints, etc., without the need for welding or complex machining.
 \end{itemize}
 
-For the internal soft pneumatic actuator, We choose to use Eco-flex, a highly elastic silicone material. As a primary material in the field of soft robotics, Eco-flex has the following advantages:
-
+For the internal soft pneumatic actuator, we choose to use Eco-flex, a highly elastic silicone material. As a primary material in the field of soft robotics, Eco-flex has the following advantages:
 \begin{itemize}
-    \item [1.] High Flexibility: It can be stretched many times its original size without tearing or deforming. This is beneficial for the application of the end effector of the chess-playing robot.
-    \item [2.] Biocompatibility: Some grades of Eco-flex are biocompatible, meaning they can be safely used in applications that require direct contact with human skin.
-    \item [3.] Ease of Manufacture: Eco-flex can be easily molded and cast into complex shapes, which is very convenient for production. 
+    \item \textbf{High Flexibility}: It can be stretched many times its original size without tearing or deforming. This is beneficial for the application of the end effector of the chess-playing robot.
+    \item \textbf{Biocompatibility}: Some grades of Eco-flex are biocompatible, meaning they can be safely used in applications that require direct contact with human skin.
+    \item \textbf{Ease of Manufacture}: Eco-flex can be easily molded and cast into complex shapes, which is very convenient for production. 
 \end{itemize}
 
 \section{Manufacturing Methods}
@@ -339,44 +345,46 @@ As mentioned earlier, the end effector consists of two parts: an external rigid 
 \section{Manufacturing Process Flow}
 \subsection{Production of the Frame Structure}
 \begin{itemize}
-    \item [1.] Preparation of Casting Process: This includes selecting the appropriate casting method (such as sand casting, die casting, low-pressure casting, etc.), and preparing the relevant casting equipment and materials.
-    \item [2.] Design and Manufacture of Molds: Design the mold according to the requirements of the cast part. Molds are usually made of heat-resistant materials that can withstand the high temperatures of aluminum alloy.
-    \item [3.] Melting the Aluminum Alloy: Heat the aluminum alloy raw material in a furnace to a molten state (660°C to 800°C). This process may involve adding some alloying elements to adjust the material's properties.
-    \item [4.] Pouring: Remove the molten aluminum alloy from the furnace and pour it into the pre-prepared molds (heated to 200°C to 250°C). This process requires controlling the temperature (680°C to 760°C) and flow rate of the molten aluminum alloy to ensure the quality of the casting.
-    \item [5.] Solidification and Cooling: The aluminum alloy solidifies in the mold. During this process, the volume of the aluminum alloy will shrink, so this must be considered in the mold design.
-    \item [6.] Demolding and Cleaning: After the aluminum alloy has completely cooled, remove it from the mold. It may be necessary to remove excess parts such as gates and risers, and to clean and polish the surface.
-    \item [7.] Heat Treatment and Post-Processing: If necessary, heat treat the casting to improve its mechanical properties. Additionally, surface treatments such as painting or anodizing may be performed to enhance corrosion resistance and appearance.
-    \item [8.] Inspection and Quality Control: Inspect the casting for dimensions, appearance, and performance to ensure it meets design specifications.
+    \item \textbf{Preparation of Casting Process}: This includes selecting the appropriate casting method (such as sand casting, die casting, low-pressure casting, etc.), and preparing the relevant casting equipment and materials.
+    \item \textbf{Design and Manufacture of Molds}: Design the mold according to the requirements of the cast part. Molds are usually made of heat-resistant materials that can withstand the high temperatures of aluminum alloy.
+    \item \textbf{Melting the Aluminum Alloy}: Heat the aluminum alloy raw material in a furnace to a molten state (660°C to 800°C). This process may involve adding some alloying elements to adjust the material's properties.
+    \item \textbf{Pouring}: Remove the molten aluminum alloy from the furnace and pour it into the pre-prepared molds (heated to 200°C to 250°C). This process requires controlling the temperature (680°C to 760°C) and flow rate of the molten aluminum alloy to ensure the quality of the casting.
+    \item \textbf{Solidification and Cooling}: The aluminum alloy solidifies in the mold. During this process, the volume of the aluminum alloy will shrink, so this must be considered in the mold design.
+    \item \textbf{Demolding and Cleaning}: After the aluminum alloy has completely cooled, remove it from the mold. It may be necessary to remove excess parts such as gates and risers, and to clean and polish the surface.
+    \item \textbf{Heat Treatment and Post-Processing}: If necessary, heat treat the casting to improve its mechanical properties. Additionally, surface treatments such as painting or anodizing may be performed to enhance corrosion resistance and appearance.
+    \item \textbf{Inspection and Quality Control}: Inspect the casting for dimensions, appearance, and performance to ensure it meets design specifications.
 \end{itemize}
 
 \subsection{Production of the End Effector Shell}
+
 \subsubsection{Preparation Stage}
 \begin{itemize}
-    \item [1.] Material Selection: Choose suitable ABS material for the product application, which may include different additives to improve performance.
-    \item [2.] Dry the Raw Material: ABS pellets typically need to be dried before injection molding to remove moisture, preventing bubbles or other defects during molding.
+    \item \textbf{Material Selection}: Choose suitable ABS material for the product application, which may include different additives to improve performance.
+    \item \textbf{Dry the Raw Material}: ABS pellets typically need to be dried before injection molding to remove moisture, preventing bubbles or other defects during molding.
 \end{itemize}
 
 \subsubsection{Injection Molding Stage}
 \begin{itemize}
-    \item [1.] Preheat the Machine: Start the injection molding machine and set the appropriate temperature and pressure parameters. The typical processing temperature range for ABS is between 200°C and 280°C.
-    \item [2.] Injection Molding: Heat the ABS to a molten state and inject it under high pressure into the preheated mold cavity.
-    \item [3.] Demolding: After cooling, open the mold and eject or remove the formed part with a mechanical arm.
+    \item \textbf{Preheat the Machine}: Start the injection molding machine and set the appropriate temperature and pressure parameters. The typical processing temperature range for ABS is between 200°C and 280°C.
+    \item \textbf{Injection Molding}: Heat the ABS to a molten state and inject it under high pressure into the preheated mold cavity.
+    \item \textbf{Demolding}: After cooling, open the mold and eject or remove the formed part with a mechanical arm.
 \end{itemize}
 
 \subsubsection{Post-Processing Stage}
 \begin{itemize}
-    \item [1.] Deburring: Remove residual parts of the runner system and burrs, which can be done manually or mechanically. For batch production, we choose a mechanical removal method - using specialized trimming machines or other mechanical equipment to automatically remove burrs. These devices can trim the burrs of a large number of products quickly and accurately, but require a relatively high initial investment in machinery.
-    \item [2.] Secondary Processing: Perform drilling, milling, or cutting, etc.
-    \item [3.] Surface Treatment: Such as painting, screen printing, or gold plating. Due to certain wear resistance requirements, we choose Physical Vapor Deposition (PVD) - applying a thin metal film to improve wear resistance and decoration.
-    \item [4.] Inspection and Testing: Check dimensional accuracy, appearance, and physical properties to ensure product quality.
+    \item \textbf{Deburring}: Remove residual parts of the runner system and burrs, which can be done manually or mechanically. For batch production, we choose a mechanical removal method - using specialized trimming machines or other mechanical equipment to automatically remove burrs. These devices can trim the burrs of a large number of products quickly and accurately, but require a relatively high initial investment in machinery.
+    \item \textbf{Secondary Processing}: Perform drilling, milling, or cutting, etc.
+    \item \textbf{Surface Treatment}: Such as painting, screen printing, or gold plating. Due to certain wear resistance requirements, we choose Physical Vapor Deposition (PVD) - applying a thin metal film to improve wear resistance and decoration.
+    \item \textbf{Inspection and Testing}: Check dimensional accuracy, appearance, and physical properties to ensure product quality.
 \end{itemize}
 
 \subsection{Production of the Soft Actuator}
+As is shown in Fig. \ref{fig:demolding_assembly}, four main processes are involved in soft actuator production.
 \begin{itemize}
-    \item [1.] Design and Mold Creation: Design the mold model of the soft robot on a computer, and then carry out 3D printing.
-    \item [2.] Material Preparation: Measure two components of Eco-flex liquid A and B in a 1:1 ratio. Eco-flex is a silicone rubber commonly used in soft robotics, known for its flexibility and durability. Mix liquid A and B in a container, stir for one minute to ensure thorough mixing.
-    \item [3.] Pouring Process: Pour the Eco-flex liquid mixture into the prepared mold (Step 01). It fills the lower cavity of the mold. Then cure the material at a temperature of 70 degrees Celsius for one hour (Step 02) to solidify and form the shape of the mold.
-    \item [4.] Demolding and Assembly: After the curing process, remove the solidified Eco-flex shape from the mold; this step is called demolding (Step 03). Finally, stick the two cast planes together to form the final component. Eco-flex itself acts as the glue to bond the two parts. After assembly, a cavity is left in the middle of the flat structure.
+    \item \textbf{Design and Mold Creation}: Design the mold model of the soft robot on a computer, and then carry out 3D printing.
+    \item \textbf{Material Preparation:} Measure two components of Eco-flex liquid A and B in a 1:1 ratio. Eco-flex is a silicone rubber commonly used in soft robotics, known for its flexibility and durability. Mix liquid A and B in a container, and stir for one minute to ensure thorough mixing.
+    \item \textbf{Pouring Process}: Pour the Eco-flex liquid mixture into the prepared mold (Step 01). It fills the lower cavity of the mold. Then cure the material at a temperature of 70 degrees Celsius for one hour (Step 02) to solidify and form the shape of the mold.
+    \item \textbf{Demolding and Assembly}: After the curing process, remove the solidified Eco-flex shape from the mold; this step is called demolding (Step 03). Finally, stick the two cast planes together to form the final component. Eco-flex itself acts as the glue to bond the two parts. After assembly, a cavity is left in the middle of the flat structure.
 \end{itemize}
 
 \begin{figure}
@@ -386,7 +394,7 @@ As mentioned earlier, the end effector consists of two parts: an external rigid 
     \label{fig:demolding_assembly}
 \end{figure}
 
-By injecting air into the middle cavity, the soft structure expand from flat to the shape of a spherical cap.
+By injecting air into the middle cavity, the soft structure expands from flat to the shape of a spherical cap.
 
 \begin{figure}
     \centering
@@ -398,7 +406,7 @@ By injecting air into the middle cavity, the soft structure expand from flat to 
 \section{Assembly}
 The focus of this project is on the end effector of this robot, so the emphasis here is on how it is assembled.
 
-The outer shell and the soft structure of the end effector are bonded together using glue. Small holes are drilled in the shell of the end effector, which lead to grooves in the inner wall. Glue can be injected through these holes into the grooves, allowing the internal soft structure to be combined with the outer shell.
+The outer shell and the soft structure of the end effector are bonded together using glue. Small holes are drilled in the shell of the end effector, which leads to grooves in the inner wall. Glue can be injected through these holes into the grooves, allowing the internal soft structure to be combined with the outer shell.
 
 \bibliographystyle{plain}
 \bibliography{ref}
