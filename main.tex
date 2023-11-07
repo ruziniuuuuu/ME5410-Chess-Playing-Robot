@@ -1,0 +1,395 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Packages
+\documentclass[10pt, a4paper, twocolumn]{article}
+\usepackage[top=3cm, bottom=4cm, left=2cm, right=2cm]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd, fancyhdr, color, comment, graphicx, environ}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage[math-style=ISO]{unicode-math}
+\setmathfont{TeX Gyre Termes Math}
+\usepackage{lastpage}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{sectsty}
+\usepackage{thmtools}
+\usepackage{shadethm}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage[linguistics]{forest}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Environment setup
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\newrobustcmd\ExampleText{%
+An \textit{inhomogeneous linear} differential equation has the form
+\begin{align}
+L[v ] = f,
+\end{align}
+where $L$ is a linear differential operator, $v$ is the dependent
+variable, and $f$ is a given non−zero function of the independent
+variables alone.
+}
+\mdfdefinestyle{theoremstyle}{%
+linecolor=black,linewidth=1pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+\mdtheorem[style=theoremstyle]{Problem}{Problem}
+\newenvironment{Solution}{\textbf{Solution.}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}     
+\newcommand\course{Materials, Sensors, Actuators & Fabrication in Robotics}  
+\newcommand\hwnumber{ME5410}
+\newcommand\Information{Name: XXXX  \\ ID: XXXX}                        % <-- personal information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Page setup
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\today}
+% \rhead{\includegraphics[width=2.5cm]{logo-nus.png}}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{\small\thepage}
+\rfoot{}
+\headsep 1.2em
+\renewcommand{\baselinestretch}{1.25}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Add new commands here
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\PP}{\mathbb P}
+\DeclareMathOperator{\Mod}{Mod} 
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newcommand{\assign}{:=}
+\newcommand{\infixiff}{\text{ iff }}
+\newcommand{\nobracket}{}
+\newcommand{\backassign}{=:}
+\newcommand{\tmmathbf}[1]{\ensuremath{\boldsymbol{#1}}}
+\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+\newcommand{\tmtextbf}[1]{\text{{\bfseries{#1}}}}
+\newcommand{\tmtextit}[1]{\text{{\itshape{#1}}}}
+
+\newenvironment{itemizedot}{\begin{itemize} \renewcommand{\labelitemi}{$\bullet$}\renewcommand{\labelitemii}{$\bullet$}\renewcommand{\labelitemiii}{$\bullet$}\renewcommand{\labelitemiv}{$\bullet$}}{\end{itemize}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+\catcode`\>=\active \def>{
+\fontencoding{T1}\selectfont\symbol{62}\fontencoding{\encodingdefault}}
+\catcode`\<=\active \def<{
+\fontencoding{T1}\selectfont\symbol{60}\fontencoding{\encodingdefault}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tabularx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Begin now!
+
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{3cm}
+            
+        \Huge
+        \textbf{Chess Playing Robot}
+            
+        \vspace{1cm}
+        \huge
+        \hwnumber
+            
+        \vspace{1.5cm}
+        \Large
+            
+        \textbf{\Information}                      % <-- author
+        
+            
+        \vfill
+        
+        % \course
+            
+        \vspace{1cm}
+            
+        \includegraphics[width=0.4\textwidth]{logo-nus.png}
+        \\
+        
+        \Large
+        
+        \today
+            
+    \end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Complete the assignment now
+\begin{abstract}
+During a chess match, a young player was unexpectedly injured when the chess-playing robot, as the opponent, grabbed and squeezed their finger. This incident drew widespread attention, highlighting the growing integration of robotics into human life and the urgent need for systematic optimization of robots to reduce potential harm to humans. 
+
+This report explores strategies for optimizing chess-playing robots from multiple dimensions. Our research identifies two main risks: injuries from the robot's arm movement and accidental gripping of a human hand by the robot's end effector. To mitigate these risks, we propose optimizations in the robot's structural design and sensor detection. We reduced the robot's degrees of freedom, chose a high-precision gantry robot, and adjusted materials for a lightweight design. The end effector's structure was redesigned with a dual-layer of soft and hard materials, reducing injury risk during accidental contact. Additionally, sensors were embedded for environmental monitoring to enhance safety. 
+
+These measures aim to significantly improve the safety of chess-playing robots, ensuring smooth and secure human-robot interaction.
+\end{abstract}
+
+\section{Mini Review}
+
+\subsection{Actuators in Chess-Playing Robots}
+For actuators, high-torque DC motors, precision step motors, and servo motors are crucial for accurate and controlled movements. They are used in designs such as the custom mid-cost 6-DoF (Degrees of Freedom) manipulator system called Gambit, which is capable of playing in non-idealized environments\cite{Gambit}. Another instance is the SCARA robot arm analyzed for its mechanical design and control algorithms to execute chess moves\cite{anh2016design}. The use of electromagnets to move pieces from underneath has also been documented, providing a different approach to piece manipulation\cite{chess_playing_robot_vub}.
+
+\subsection{Sensory Systems in Chess-Playing Robots}
+In terms of sensory systems, advanced cameras are integral for vision sensors, enabling the detection of the chessboard and piece positions. For instance, a computer vision algorithm has been developed that detects the board, squares, and piece positions, even in unconstrained environments, adjusting dynamically to changes in lighting and accounting for perspective distortion\cite{chen2019robust}. Additionally, the implementation of force sensors ensures the correct pickup and placement of pieces, as they provide feedback on the grip and force exerted\cite{omarsdottir2016axiomatic}.
+
+Advanced systems may also incorporate artificial neural networks for enhanced efficiency in the recognition of chess states and possible moves, and collaborative robots have been used for playing chess, capable of tracking the state of the game\cite{kolosowski2020collaborative}.
+
+\subsection{Features}
+For existing chess-playing robots, most of them have some common features:
+
+Gantry structure: a large number of chess-playing robots are based on the gantry structure. This structure makes the robot's control easier and more accurate because the DOFs of this kind are obviously less than that of a mechanical arm. This means the calculation and math model in control is simpler\cite{ACPR2015}.
+
+Linear x-,y-, and z-axis movement: Each axis is an independent motion unit for robots, doing linear motions with linear sliders. This is a common feature of gantry robots. There are only 3 DOFs used in movement, reducing the load on the control system design.
+
+Rigid gripper: The grippers of the end effector on the robots are usually made of rigid materials like steel, and alloys. It is quite stable to catch the chess. It is also a little dangerous to the human body parts for the human body parts like fingers or hands cannot undertake the mechanical pressure generated by the grippers, which is easy to be hurt.
+
+\subsection{Material}
+In this course, the main robot materials used include the following: metal materials, polymer materials, ceramic materials, and composite materials.
+
+Metal materials are commonly used to manufacture the structure and key mechanical components of robots because they have excellent strength and durability. Common metal materials include aluminum, steel, titanium, and copper. These materials can be used to construct the skeleton, joints, gears, and other mechanical components of robots, providing the stability and reliability required for robots. 
+
+Ceramic materials have excellent high-temperature resistance and chemical stability, making them suitable for thermal components, pneumatic actuators, and sensors of robots. Aluminum oxide ceramics, silicon nitride ceramics, and silicon carbide ceramics are common choices that can be used to manufacture robots operating in high-temperature environments. 
+
+Composite materials are composed of two or more different materials combined to integrate the advantages of various materials. This makes them very suitable for manufacturing lightweight and high-performance robot components. Carbon fiber composite materials, glass fiber composite materials, and organic matrix composite materials can be used to manufacture robot skeletons, arms, and other structural components.
+
+Polymer materials have lightweight, plasticity, and insulation properties, making them commonly used in robot casings, covers, and sensor packaging. They are used as materials for the shell and soft gripper of chess robots. The ABS plastic used in the shell is a common robot material that has advantages in weight, safety, durability, and other aspects. Soft pneumatic actuators (SPAs) are engineered to replicate human muscular structures, necessitating materials with high elasticity and resilience\cite{Rus2015}. Silicon rubber, polyurethane, fluor elastomers and thermoplastic elastomers are typical examples of elastomers in use.  Elastomers, which have garnered significant research interest\cite{Moseley2016}, are commonly employed due to their elastic properties. Silicon rubber is favored for its versatility and endurance, especially in applications demanding substantial stretch and adaptability\cite{Xavier2022}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{advantages of soft-body grippers.jpg}
+    \caption{advantages of soft-body grippers}
+    \label{fig:advantages of soft-body grippers}
+\end{figure}
+
+\subsection{Fabrication}
+The manufacturing process is a key link in manufacturing various products, which can usually be divided into two categories: forming and assembly.
+
+Forming is the process of manufacturing materials or parts, which involves multiple different processes. The solidification process involves transforming materials from a liquid or powder state to a solid state. For example, resin is used in injection molding to form the desired shape of parts by melting and cooling. Particle processing typically involves cutting, grinding, or forming particles from the original material, and then combining them into the desired shape. This is often used in metal processing, powder metallurgy, and ceramic manufacturing. The deformation process includes methods such as cold and hot working of materials, as well as forging, to manufacture parts by changing the shape and structure of the material. For example, metal plates can be manufactured into various complex shaped parts through cold stamping. The material removal process includes CNC machine tools, milling machines, lathes, and electric discharge machining, which manufacture the specific shape of the part by removing the material. This method is applicable to materials such as metals, ceramics, and plastics.
+
+Assembly is the process of connecting various parts, components, or modules together to build the final product. In mechanical assembly, parts usually need to be fixed to each other through connections such as bolts, nuts, welding, or adhesives. This ensures a stable connection between the parts.
+
+Mechanical assembly can involve precise positioning, adjustment, and fixation to ensure the normal functionality of the product.
+
+Injection molding is the production process of the shell of a chess robot. As for the soft actuators, the advent of 3D printing technology has revolutionized the fabrication of elastomer molds\cite{Terryn2017}, allowing fast fabrication of elastomers. Researchers pour elastomer in liquid form into these molds, followed by a process of demolding and assembly to create the final product.
+
+\section{Introduction to Principles}
+\subsection{Transmission Principle}
+The chess-playing robot mainly consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector. Other components include the motor and driving device. This robot, similar to existing three-coordinate gantry robots, features a "gate"-shaped frame as its supporting structure, providing ample stability and workspace, convenient for chessboard setup and player operation. The sliding rails mounted on the frame allow the end effector to move along three spatial axes (X, Y, Z axes).
+
+The robot's moving mechanism is driven by a synchronous belt linear drive module, which consists of a synchronous belt, sliding rails and blocks, drive and driven wheels, an electric motor, brackets, and fasteners. 
+
+This module exhibits the following characteristics:
+
+\begin{itemize}
+    \item [1.] High Precision Positioning: The synchronous belt drive enables high precision positioning control, which is ideal for accurately positioning the end effector to the specific row or column of a chess piece on the board.
+    \item [2. ] Low Noise and Smooth Operation: Due to the smooth transmission of the synchronous belt, this drive module operates with low noise, meeting the environmental requirements for the activity of playing chess.
+    \item [3.] High Efficiency and Low Maintenance: The transmission efficiency of the synchronous belt is high, and unlike chain drives, it does not require regular lubrication, thus reducing maintenance needs.
+    \item [4.] Customizability and Cost-Effectiveness: This module can be manufactured in various lengths and widths to meet different application needs. Compared to other types of linear drive systems (such as ball screw drives), the synchronous belt linear drive module is usually more economical, allowing for mass custom production.
+\end{itemize}
+
+Due to the need for high positioning accuracy and repeatability in moving to the chess piece's position and grasping it, a screw structure with higher precision compared to the synchronous belt linear drive module is chosen as the up-and-down driving device for the end effector. This structure includes a central spiral screw and several pillars for supporting and guiding the moving parts. The drive motor (usually a stepper or servo motor) is located at the top of the lifting device and at the end of the sliding rail. It guides the movement of the end effector relative to the Y and Z axes of the chessboard by rotating the spiral screw, thus accurately reaching the position to grasp the chess pieces.
+
+\subsection{Grasping Principle}
+The end effector consists of two parts: the outer shell base and the internal soft pneumatic actuation unit. The base part is a hollow cylindrical structure that serves to constrain the shape of the soft pneumatic part. The main grasping action is accomplished by the pneumatic unit, which has multiple air bubbles uniformly distributed in a dot matrix inside. These bubbles are driven by a pneumatic device. When the pneumatic device inflates, the bubbles expand, thereby gripping the chess piece to achieve grasping. The reason for choosing pneumatics as the driving principle is straightforward: on one hand, it can be used to drive the designed soft grasping device; on the other hand, it can respond quickly and provide significant force, making it very suitable for grasping chess pieces.
+
+\subsection{Control Principle}
+The control system of the chess-playing robot is a complex and precise system, which for this project includes several key components: the sensing system, decision engine, actuators, user interface (for interaction with human users), communication system (allowing it to update software, download new chess strategies, or exchange data with remote servers), safety system (controlling the robot's emergency stop), and power management (managing the robot's power supply), among others. This report will focus on describing the sensing system and the actuation system as the two major control systems.
+
+\subsubsection{Sensing System}
+
+\begin{itemize}
+    \item [1.] Cameras and Image Processing: Cameras are the most common devices in the sensing system, used to capture real-time images of the chessboard and chess pieces. Through image processing algorithms, the robot analyzes these images to identify the position, type, and possible movements of the chess pieces. Advanced systems may use multiple cameras to observe the chessboard from different angles, improving accuracy. In fact, if technically feasible, we also expect the robot to recognize whether human fingers are present on the chessboard through the image recognition system, which can greatly prevent the robot's end effector from harming human fingers.
+    \item [2.] Sensors: Sensors can get information from environments. The motion vector sensor is installed on the lower surface of the end effector to detect if there is a human body part moving below the effector and how far it is; the force sensor is installed on the effector’s internal surface of the soft part to get the bearing force to judge whether the piece is caught successfully.
+    \item [3.] Software and Algorithms: Image recognition software processes data from the cameras to recognize the chessboard layout. Machine learning algorithms may be used to enhance the accuracy of recognition and adapt to different chessboards and chess pieces.
+\end{itemize}
+
+
+
+\subsubsection{{Actuator System}}
+\begin{itemize}
+    \item [1.] Servo Motors: Servo motors are used to control the position of the robot's sliding rails and end effector, ensuring precise motion and positioning. The motors are usually combined with encoders to feedback position information and guarantee the accuracy of movement.
+    \item [2.] Servo Control System: The servo control system directs the actions of the servo motors, often based on data provided by the sensing system. This may include complex algorithms and software to calculate optimal movement paths and force.
+    \item [3.] Air Pumps: To control the soft actuators, a Pneumatic Control Unit (PCU) is required. This project opts for the SIMILK DC 6V miniature air pump motor, which has a high power density. It is equipped with a proportional valve (allowing gradual changes in pressure and flow), and can precisely control pressure through integrated sensors (pressure and flow sensors). Moreover, it can provide sufficient airflow and pressure to effectively drive the soft structures.
+\end{itemize}
+
+\subsection{Implementation of Safety}
+Firstly, we have focused on improving the structure of the end effector by using a soft actuator and covering the bottom of the actuator with a soft material to make it less likely to cause injury. Additionally, a capacitive distance sensor is installed at the position of the end effector to detect the proximity of human hands.
+
+On the other hand, visual sensors and image recognition software are used to ensure that the entire robot stops moving once a human hand enters the chessboard area. The robot is also equipped with an emergency stop button, allowing for manual shutdown in urgent situations.
+
+\section{Material Selection}
+When selecting materials for manufacturing robots, considering the application scenarios and functional requirements, the commonly used materials include several categories: metals, plastics and synthetic materials, composite materials, flexible materials, and smart materials.
+
+For this project's chess-playing robot, which primarily consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector, we decide to choose materials according to the different parts of the robot.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{material selection.jpg}
+    \caption{process of material selection}
+    \label{fig:process of material selection}
+\end{figure}
+
+\subsection{Frame Structure and Sliding Rail Moving Mechanism}
+We have chosen to use aluminum alloy for the frame structure and sliding rail moving mechanism, as aluminum alloy has the following advantages compared to other materials:
+\begin{itemize}
+    \item [1.] Lightweight: Aluminum alloy has low density and is lightweight, which means the constructed frame structure and sliding rail moving mechanism will be relatively light. For the chess-playing robot, which may need to be moved frequently, this imposes certain limitations on the overall weight of the robot. Moreover, if the robot is too heavy, the impulse of the moving arm will be relatively large, which could cause injury if it comes into contact with a person during movement. Therefore, choosing lightweight aluminum alloy as the primary material for its structure is a good choice.
+    \item [2.] High Strength: Despite its lightness, aluminum alloy has high strength and stiffness. The load of the chess-playing robot is relatively small, so using aluminum alloy meets the strength requirements of the robot well.
+    \item [3.] Good Machinability: Aluminum alloy is easy to process and shape. It can be processed into various shapes through cutting, welding, casting, and other methods, making it convenient to manufacture the structure.
+    \item [4.] Economical: Compared to other metal materials, the cost of aluminum alloy is relatively low, allowing for reduced manufacturing costs without sacrificing performance.
+\end{itemize}
+
+\subsection{End Effector}
+The end effector of the chess-playing robot consists of two parts: the outer shell's base part and the internal soft pneumatic actuator. For these two parts, we have also chosen materials for manufacturing.
+
+We have decided to use ABS to make the base part of the outer shell. ABS material has several advantages over other materials:
+\begin{itemize}
+    \item [1.] Raw Material Cost: The price of ABS plastic is generally lower than that of most metal materials, especially high-performance metals like aluminum alloys or stainless steel.
+    \item [2.] Manufacturing Speed: Injection molding can rapidly produce a large number of parts, significantly increasing production efficiency and reducing unit costs.
+    \item [3.] Ease of Assembly: ABS parts are usually easier to assemble because they can be designed with snaps, joints, etc., without the need for welding or complex machining
+\end{itemize}
+
+For the internal soft pneumatic actuator, We choose to use Eco-flex, a highly elastic silicone material. As a primary material in the field of soft robotics, Eco-flex has the following advantages:
+
+\begin{itemize}
+    \item [1.] High Flexibility: It can be stretched many times its original size without tearing or deforming. This is beneficial for the application of the end effector of the chess-playing robot.
+    \item [2.] Biocompatibility: Some grades of Eco-flex are biocompatible, meaning they can be safely used in applications that require direct contact with human skin.
+    \item [3.] Ease of Manufacture: Eco-flex can be easily molded and cast into complex shapes, which is very convenient for production. 
+\end{itemize}
+
+\section{Manufacturing Methods}
+
+The manufacturing methods of the robot will be explained separately for the frame structure and the end effector:
+
+\subsection{Frame Stucture}
+The frame part of the robot is made of aluminum alloy, and this part is chosen to be produced through casting. Casting offers flexibility in production: it can produce complex-shaped aluminum alloy parts and is suitable for large-scale batch production, making it an excellent choice.
+
+\subsection{End Effector}
+As mentioned earlier, the end effector consists of two parts: an external rigid structure and an internal soft actuator. Both of these structural parts are chosen to be completed through injection molding. Injection molding not only has a fast manufacturing speed and low processing cost but is also more conducive to post-processing after production, making it suitable for mass production.
+
+\section{Manufacturing Process Flow}
+\subsection{Production of the Frame Structure}
+\begin{itemize}
+    \item [1.] Preparation of Casting Process: This includes selecting the appropriate casting method (such as sand casting, die casting, low-pressure casting, etc.), and preparing the relevant casting equipment and materials.
+    \item [2.] Design and Manufacture of Molds: Design the mold according to the requirements of the cast part. Molds are usually made of heat-resistant materials that can withstand the high temperatures of aluminum alloy.
+    \item [3.] Melting the Aluminum Alloy: Heat the aluminum alloy raw material in a furnace to a molten state (660°C to 800°C). This process may involve adding some alloying elements to adjust the material's properties.
+    \item [4.] Pouring: Remove the molten aluminum alloy from the furnace and pour it into the pre-prepared molds (heated to 200°C to 250°C). This process requires controlling the temperature (680°C to 760°C) and flow rate of the molten aluminum alloy to ensure the quality of the casting.
+    \item [5.] Solidification and Cooling: The aluminum alloy solidifies in the mold. During this process, the volume of the aluminum alloy will shrink, so this must be considered in the mold design.
+    \item [6.] Demolding and Cleaning: After the aluminum alloy has completely cooled, remove it from the mold. It may be necessary to remove excess parts such as gates and risers, and to clean and polish the surface.
+    \item [7.] Heat Treatment and Post-Processing: If necessary, heat treat the casting to improve its mechanical properties. Additionally, surface treatments such as painting or anodizing may be performed to enhance corrosion resistance and appearance.
+    \item [8.] Inspection and Quality Control: Inspect the casting for dimensions, appearance, and performance to ensure it meets design specifications.
+\end{itemize}
+
+\subsection{Production of the End Effector Shell}
+\subsubsection{Preparation Stage}
+\begin{itemize}
+    \item [1.] Material Selection: Choose suitable ABS material for the product application, which may include different additives to improve performance.
+    \item [2.] Dry the Raw Material: ABS pellets typically need to be dried before injection molding to remove moisture, preventing bubbles or other defects during molding.
+\end{itemize}
+
+\subsubsection{Injection Molding Stage}
+\begin{itemize}
+    \item [1.] Preheat the Machine: Start the injection molding machine and set the appropriate temperature and pressure parameters. The typical processing temperature range for ABS is between 200°C and 280°C.
+    \item [2.] Injection Molding: Heat the ABS to a molten state and inject it under high pressure into the preheated mold cavity.
+    \item [3.] Demolding: After cooling, open the mold and eject or remove the formed part with a mechanical arm.
+\end{itemize}
+
+\subsubsection{Post-Processing Stage}
+\begin{itemize}
+    \item [1.] Deburring: Remove residual parts of the runner system and burrs, which can be done manually or mechanically. For batch production, we choose a mechanical removal method - using specialized trimming machines or other mechanical equipment to automatically remove burrs. These devices can trim the burrs of a large number of products quickly and accurately, but require a relatively high initial investment in machinery.
+    \item [2.] Secondary Processing: Perform drilling, milling, or cutting, etc.
+    \item [3.] Surface Treatment: Such as painting, screen printing, or gold plating. Due to certain wear resistance requirements, we choose Physical Vapor Deposition (PVD) - applying a thin metal film to improve wear resistance and decoration.
+    \item [4.] Inspection and Testing: Check dimensional accuracy, appearance, and physical properties to ensure product quality.
+\end{itemize}
+
+\subsection{Production of the Soft Actuator}
+\begin{itemize}
+    \item [1.] Design and Mold Creation: Design the mold model of the soft robot on a computer, and then carry out 3D printing.
+    \item [2.] Material Preparation: Measure two components of Eco-flex liquid A and B in a 1:1 ratio. Eco-flex is a silicone rubber commonly used in soft robotics, known for its flexibility and durability. Mix liquid A and B in a container, stir for one minute to ensure thorough mixing.
+    \item [3.] Pouring Process: Pour the Eco-flex liquid mixture into the prepared mold (Step 01). It fills the lower cavity of the mold. Then cure the material at a temperature of 70 degrees Celsius for one hour (Step 02) to solidify and form the shape of the mold.
+    \item [4.] Demolding and Assembly: After the curing process, remove the solidified Eco-flex shape from the mold; this step is called demolding (Step 03). Finally, stick the two cast planes together to form the final component. Eco-flex itself acts as the glue to bond the two parts. After assembly, a cavity is left in the middle of the flat structure.
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{demolding and assembly.png}
+    \caption{process of demolding and assembly}
+    \label{fig:demolding_assembly}
+\end{figure}
+
+By injecting air into the middle cavity, the soft structure expand from flat to the shape of a spherical cap.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{process of injecting air.png}
+    \caption{process of injecting air}
+    \label{fig:process of injecting air}
+\end{figure}
+
+\section{Assembly}
+The focus of this project is on the end effector of this robot, so the emphasis here is on how it is assembled.
+
+The outer shell and the soft structure of the end effector are bonded together using glue. Small holes are drilled in the shell of the end effector, which lead to grooves in the inner wall. Glue can be injected through these holes into the grooves, allowing the internal soft structure to be combined with the outer shell.
+
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
