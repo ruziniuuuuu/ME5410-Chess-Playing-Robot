@@ -130,6 +130,8 @@ innertopmargin=\topskip,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Begin now!
 
@@ -230,15 +232,22 @@ Incorporating these insights, the mini-review on the fabrication of chess robots
 \subsection{Transmission Principle}
 The chess-playing robot mainly consists of three parts: the frame structure, the sliding rail moving mechanism, and the end effector. Other components include the motor and driving device. This robot, similar to existing three-coordinate gantry robots, features a "gate"-shaped frame as its supporting structure, providing ample stability and workspace, convenient for chessboard setup and player operation. The sliding rails mounted on the frame allow the end effector to move along three spatial axes (X, Y, Z axes).
 
-The robot's moving mechanism is driven by a synchronous belt linear drive module, which consists of a synchronous belt, sliding rails and blocks, drive and driven wheels, an electric motor, brackets, and fasteners. 
+The robot's moving mechanism is driven by a synchronous belt linear drive module, which consists of a synchronous belt, sliding rails and blocks, drive and driven wheels, an electric motor, brackets, and fasteners.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{schematic diagram.jpg}
+    \caption{schematic diagram of our robot}
+    \label{fig:schematic diagram}
+\end{figure}
 
 This module exhibits the following characteristics:
 
 \begin{itemize}
-    \item [1.] High Precision Positioning: The synchronous belt drive enables high precision positioning control, which is ideal for accurately positioning the end effector to the specific row or column of a chess piece on the board.
-    \item [2.] Low Noise and Smooth Operation: Due to the smooth transmission of the synchronous belt, this drive module operates with low noise, meeting the environmental requirements for the activity of playing chess.
-    \item [3.] High Efficiency and Low Maintenance: The transmission efficiency of the synchronous belt is high, and unlike chain drives, it does not require regular lubrication, thus reducing maintenance needs.
-    \item [4.] Customizability and Cost-Effectiveness: This module can be manufactured in various lengths and widths to meet different application needs. Compared to other types of linear drive systems (such as ball screw drives), the synchronous belt linear drive module is usually more economical, allowing for mass custom production.
+    \item \textbf{High Precision Positioning}: The synchronous belt drive enables high precision positioning control, which is ideal for accurately positioning the end effector to the specific row or column of a chess piece on the board.
+    \item \textbf{Low Noise and Smooth Operation}: Due to the smooth transmission of the synchronous belt, this drive module operates with low noise, meeting the environmental requirements for the activity of playing chess.
+    \item \textbf{High Efficiency and Low Maintenance}: The transmission efficiency of the synchronous belt is high, and unlike chain drives, it does not require regular lubrication, thus reducing maintenance needs.
+    \item \textbf{Customizability and Cost-Effectiveness}: This module can be manufactured in various lengths and widths to meet different application needs. Compared to other types of linear drive systems (such as ball screw drives), the synchronous belt linear drive module is usually more economical, allowing for mass custom production.
 \end{itemize}
 
 Due to the need for high positioning accuracy and repeatability in moving to the chess piece's position and grasping it, a screw structure with higher precision compared to the synchronous belt linear drive module is chosen as the up-and-down driving device for the end effector. This structure includes a central spiral screw and several pillars for supporting and guiding the moving parts. The drive motor (usually a stepper or servo motor) is located at the top of the lifting device and at the end of the sliding rail. It guides the movement of the end effector relative to the Y and Z axes of the chessboard by rotating the spiral screw, thus accurately reaching the position to grasp the chess pieces.
@@ -246,24 +255,31 @@ Due to the need for high positioning accuracy and repeatability in moving to the
 \subsection{Grasping Principle}
 The end effector consists of two parts: the outer shell base and the internal soft pneumatic actuation unit. The base part is a hollow cylindrical structure that serves to constrain the shape of the soft pneumatic part. The main grasping action is accomplished by the pneumatic unit, which has multiple air bubbles uniformly distributed in a dot matrix inside. These bubbles are driven by a pneumatic device. When the pneumatic device inflates, the bubbles expand, thereby gripping the chess piece to achieve grasping. The reason for choosing pneumatics as the driving principle is straightforward: on one hand, it can be used to drive the designed soft grasping device; on the other hand, it can respond quickly and provide significant force, making it very suitable for grasping chess pieces.
 
-\subsection{Control Principle}
-The control system of the chess-playing robot is a complex and precise system, which for this project includes several key components: the sensing system, decision engine, actuators, user interface (for interaction with human users), communication system (allowing it to update software, download new chess strategies, or exchange data with remote servers), safety system (controlling the robot's emergency stop), and power management (managing the robot's power supply), among others. This report will focus on describing the sensing system and the actuation system as the two major control systems.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\linewidth]{grasping principle.png}
+    \caption{schematic diagram of grasping principle}
+    \label{fig:grasping principle}
+\end{figure}
 
-\subsubsection{Sensing System}
+\section{Control Principle}
+
+This report delineates the principal components of the control system for a chess-playing robot, specifically focusing on its sensing and actuation mechanisms.
+
+\subsection{Sensing System}
 
 \begin{itemize}
-    \item [1.] Cameras and Image Processing: Cameras are the most common devices in the sensing system, used to capture real-time images of the chessboard and chess pieces. Through image processing algorithms, the robot analyzes these images to identify the position, type, and possible movements of the chess pieces. Advanced systems may use multiple cameras to observe the chessboard from different angles, improving accuracy. In fact, if technically feasible, we also expect the robot to recognize whether human fingers are present on the chessboard through the image recognition system, which can greatly prevent the robot's end effector from harming human fingers.
-    \item [2.] Sensors: Sensors can get information from environments. The motion vector sensor is installed on the lower surface of the end effector to detect if there is a human body part moving below the effector and how far it is; the force sensor is installed on the effector’s internal surface of the soft part to get the bearing force to judge whether the piece is caught successfully.
-    \item [3.] Software and Algorithms: Image recognition software processes data from the cameras to recognize the chessboard layout. Machine learning algorithms may be used to enhance the accuracy of recognition and adapt to different chessboards and chess pieces.
+    \item \textbf{Visual Recognition:} Employing cameras, the system captures the chessboard state, determining piece positions and possible moves. Image processing, potentially enhanced by multiple camera angles, discerns piece types and checks for human interaction to enhance safety.
+    \item \textbf{Sensors:} A suite of sensors, including motion vectors and force detectors on the robot's effector, provides environmental feedback and interaction status, ensuring correct piece manipulation and human safety.
+    \item \textbf{Computational Analysis:} The integration of software and machine learning algorithms processes visual data, improving recognition efficiency and adjusting to varying game setups.
 \end{itemize}
 
+\subsection{Actuator System}
 
-
-\subsubsection{{Actuator System}}
 \begin{itemize}
-    \item [1.] Servo Motors: Servo motors are used to control the position of the robot's sliding rails and end effector, ensuring precise motion and positioning. The motors are usually combined with encoders to feedback position information and guarantee the accuracy of movement.
-    \item [2.] Servo Control System: The servo control system directs the actions of the servo motors, often based on data provided by the sensing system. This may include complex algorithms and software to calculate optimal movement paths and force.
-    \item [3.] Air Pumps: To control the soft actuators, a Pneumatic Control Unit (PCU) is required. This project opts for the SIMILK DC 6V miniature air pump motor, which has a high power density. It is equipped with a proportional valve (allowing gradual changes in pressure and flow), and can precisely control pressure through integrated sensors (pressure and flow sensors). Moreover, it can provide sufficient airflow and pressure to effectively drive the soft structures.
+    \item \textbf{Precision Motors:} Utilizing servo motors with integrated encoders, the robot achieves precise control over its mechanical movements, vital for accurate positioning of its components.
+    \item \textbf{Motor Control:} Advanced algorithms within the servo control system translate sensory inputs into meticulous motor operations, optimizing movement trajectories and exerted forces.
+    \item \textbf{Pneumatic Actuation:} The Pneumatic Control Unit, powered by a high power-density SIMILK DC 6V air pump, manages the robot's soft actuators. Coupled with proportional valves and precise pressure sensors, it ensures the smooth operation of the actuation system.
 \end{itemize}
 
 \subsection{Implementation of Safety}
