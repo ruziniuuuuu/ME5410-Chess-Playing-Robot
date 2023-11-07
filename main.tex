@@ -133,6 +133,7 @@ innertopmargin=\topskip,
 \usepackage{tabularx}
 \usepackage{tikz}
 \usetikzlibrary{shapes, arrows, positioning}
+\usepackage{graphicx}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Begin now!
 
@@ -258,14 +259,28 @@ This module exhibits the following characteristics:
 
 Due to the need for high positioning accuracy and repeatability in moving to the chess piece's position and grasping it, a screw structure with higher precision compared to the synchronous belt linear drive module is chosen as the up-and-down driving device for the end effector. This structure includes a central spiral screw and several pillars for supporting and guiding the moving parts. The drive motor (usually a stepper or servo motor) is located at the top of the lifting device and at the end of the sliding rail. It guides the movement of the end effector relative to the Y and Z axes of the chessboard by rotating the spiral screw, thus accurately reaching the position to grasp the chess pieces.
 
-\subsection{Grasping Principle}
-The end effector consists of two parts: the outer shell base and the internal soft pneumatic actuation unit. The base part is a hollow cylindrical structure that serves to constrain the shape of the soft pneumatic part. The main grasping action is accomplished by the pneumatic unit, which has multiple air bubbles uniformly distributed in a dot matrix inside. These bubbles are driven by a pneumatic device. When the pneumatic device inflates, the bubbles expand, thereby gripping the chess piece to achieve grasping. The reason for choosing pneumatics as the driving principle is straightforward: on one hand, it can be used to drive the designed soft grasping device; on the other hand, it can respond quickly and provide significant force, making it very suitable for grasping chess pieces.
-
 \begin{figure}
     \centering
     \includegraphics[width=0.6\linewidth]{grasping principle.png}
     \caption{schematic diagram of grasping principle}
     \label{fig:grasping principle}
+\end{figure}
+
+\subsection{Grasping Principle}
+The end effector consists of two parts: the outer shell base and the internal soft pneumatic actuation unit. The base part is a hollow cylindrical structure that serves to constrain the shape of the soft pneumatic part. The main grasping action is accomplished by the pneumatic unit, which has multiple air bubbles uniformly distributed in a dot matrix inside. These bubbles are driven by a pneumatic device. When the pneumatic device inflates, the bubbles expand, thereby gripping the chess piece to achieve grasping. The reason for choosing pneumatics as the driving principle is straightforward: on one hand, it can be used to drive the designed soft grasping device; on the other hand, it can respond quickly and provide significant force, making it very suitable for grasping chess pieces.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\linewidth]{grasping chess.png}
+    \caption{grasping chess}
+    \label{fig:grasping chess}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.3\linewidth]{end effector.png}
+    \caption{end effector}
+    \label{fig:end effector}
 \end{figure}
 
 \section{Control Principle}
@@ -382,7 +397,7 @@ As mentioned earlier, the end effector consists of two parts: an external rigid 
 As is shown in Fig. \ref{fig:demolding_assembly}, four main processes are involved in soft actuator production.
 \begin{itemize}
     \item \textbf{Design and Mold Creation}: Design the mold model of the soft robot on a computer, and then carry out 3D printing.
-    \item \textbf{Material Preparation:} Measure two components of Eco-flex liquid A and B in a 1:1 ratio. Eco-flex is a silicone rubber commonly used in soft robotics, known for its flexibility and durability. Mix liquid A and B in a container, and stir for one minute to ensure thorough mixing.
+    \item \textbf{Material Preparation:} Measure two components of Eco-flex liquid A and B in a 1:1 ratio. Eco-flex is a silicone rubber commonly used in soft robotics, known for its flexibility and durability. Mix liquids A and B in a container, and stir for one minute to ensure thorough mixing.
     \item \textbf{Pouring Process}: Pour the Eco-flex liquid mixture into the prepared mold (Step 01). It fills the lower cavity of the mold. Then cure the material at a temperature of 70 degrees Celsius for one hour (Step 02) to solidify and form the shape of the mold.
     \item \textbf{Demolding and Assembly}: After the curing process, remove the solidified Eco-flex shape from the mold; this step is called demolding (Step 03). Finally, stick the two cast planes together to form the final component. Eco-flex itself acts as the glue to bond the two parts. After assembly, a cavity is left in the middle of the flat structure.
 \end{itemize}
