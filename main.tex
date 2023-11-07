@@ -82,7 +82,7 @@ innertopmargin=\topskip,
 \newcommand\course{Materials, Sensors, Actuators & Fabrication in Robotics}  
 \newcommand\hwnumber{ME5410}
 \newcommand\teamnumber{Team 11}
-\newcommand\Information{Name: XXXX  \\ ID: XXXX}                        % <-- personal information
+\newcommand\Information{Name (ID): Bai Chengxi(), Cao Chenyu(), Hao Yuqi(), Li Zhangjin(), Miao Chenhui(), Zhou Yinhong()}                        % <-- personal information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Page setup
@@ -244,8 +244,22 @@ The robot's moving mechanism is driven by a synchronous belt linear drive module
 \begin{figure}
     \centering
     \includegraphics[width=0.5\linewidth]{schematic diagram.jpg}
-    \caption{schematic diagram of our robot}
+    \caption{schematic diagram of "gate"-shaped frame}
     \label{fig:schematic diagram}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{screw drive in x-axis motion.png}
+    \caption{screw drive in x-axis motion}
+    \label{fig:screw drive in x-axis motion}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{belt drive in y-axis motion.png}
+    \caption{belt drive in y-axis motion}
+    \label{fig:belt drive in y-axis motion}
 \end{figure}
 
 This module exhibits the following characteristics:
@@ -256,6 +270,13 @@ This module exhibits the following characteristics:
     \item \textbf{High Efficiency and Low Maintenance}: The transmission efficiency of the synchronous belt is high, and unlike chain drives, it does not require regular lubrication, thus reducing maintenance needs.
     \item \textbf{Customizability and Cost-Effectiveness}: This module can be manufactured in various lengths and widths to meet different application needs. Compared to other types of linear drive systems (such as ball screw drives), the synchronous belt linear drive module is usually more economical, allowing for mass custom production.
 \end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.25\linewidth, angle=90]{screw structure in z-axis motion.png}
+    \caption{screw structure in z-axis motion}
+    \label{fig:screw structure in z-axis motion}
+\end{figure}
 
 Due to the need for high positioning accuracy and repeatability in moving to the chess piece's position and grasping it, a screw structure with higher precision compared to the synchronous belt linear drive module is chosen as the up-and-down driving device for the end effector. This structure includes a central spiral screw and several pillars for supporting and guiding the moving parts. The drive motor (usually a stepper or servo motor) is located at the top of the lifting device and at the end of the sliding rail. It guides the movement of the end effector relative to the Y and Z axes of the chessboard by rotating the spiral screw, thus accurately reaching the position to grasp the chess pieces.
 
@@ -272,14 +293,14 @@ The end effector consists of two parts: the outer shell base and the internal so
 \begin{figure}
     \centering
     \includegraphics[width=0.3\linewidth]{grasping chess.png}
-    \caption{grasping chess}
+    \caption{principle of grasping chess}
     \label{fig:grasping chess}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=0.3\linewidth]{end effector.png}
-    \caption{end effector}
+    \caption{end effector structure}
     \label{fig:end effector}
 \end{figure}
 
@@ -349,7 +370,14 @@ For the internal soft pneumatic actuator, we choose to use Eco-flex, a highly el
 
 \section{Manufacturing Methods}
 
-The manufacturing methods of the robot will be explained separately for the frame structure and the end effector:
+As depicted in Fig. \ref{fig:final design}, we present the finalized design of the chess-playing robot. The manufacturing methodologies for the robot will be delineated separately for its frame structure and the end effector:
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{final design.png}
+    \caption{final design of chess playing robot}
+    \label{fig:final design}
+\end{figure}
 
 \subsection{Frame Stucture}
 The frame part of the robot is made of aluminum alloy, and this part is chosen to be produced through casting. Casting offers flexibility in production: it can produce complex-shaped aluminum alloy parts and is suitable for large-scale batch production, making it an excellent choice.
@@ -422,6 +450,8 @@ By injecting air into the middle cavity, the soft structure expands from flat to
 The focus of this project is on the end effector of this robot, so the emphasis here is on how it is assembled.
 
 The outer shell and the soft structure of the end effector are bonded together using glue. Small holes are drilled in the shell of the end effector, which leads to grooves in the inner wall. Glue can be injected through these holes into the grooves, allowing the internal soft structure to be combined with the outer shell.
+
+
 
 \bibliographystyle{plain}
 \bibliography{ref}
