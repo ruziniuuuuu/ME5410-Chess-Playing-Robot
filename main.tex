@@ -222,7 +222,7 @@ The specifics of these features can vary between different chess-playing robots,
 \end{figure}
 
 \subsection{Material}
-In this course, the main robot materials used include the following: metal materials, polymer materials, ceramic materials, and composite materials.
+The main robot materials used include the following: metal materials, polymer materials, ceramic materials, and composite materials.
 
 Robots are crafted using metals like aluminum, steel, titanium, and copper for their robustness, forming key elements like skeletons and gears. Ceramics, such as aluminum oxide and silicon nitride, cater to high-temperature and chemically demanding parts like sensors. For lightweight, high-strength components, composites like carbon fiber are employed, merging multiple material benefits into robot structures.\cite{nelson_csc297_materials}
 
@@ -234,6 +234,18 @@ The manufacturing process of chess-playing robots, particularly in the context o
 In assembly, the role of robotics has become increasingly pivotal. Modern robots are flexible, autonomous, and capable of performing with minimal human intervention. They handle material transfer, loading, and unloading tasks, with complex operations like organizing parts on pallets. Processing tasks performed by robots include welding and painting, with precise operation leading to improvements in quality and production costs. In the assembly and inspection processes, robots can batch-produce various styles of a product and are programmed to adapt to different designs, optimizing efficiency and reducing the need for skilled human labor. For instance, in the Tesla Gigafactory, Autonomous Indoor Vehicles (AIVs) operate spontaneously, moving items between workstations, showcasing the potential of collaborative systems where robots and humans work in tandem\cite{RobotsNet2019}.
 
 Incorporating these insights, the mini-review on the fabrication of chess robots could be enhanced by emphasizing the role of advanced robotics in both the forming and assembly stages, highlighting the benefits of precision, efficiency, and safety introduced by these technologies. This would not only give a comprehensive view of current practices but also shed light on the potential for future advancements in the field.
+
+\section{Introduction to Structure}
+The chess-playing robot, whose appearance is shown in the Fig. \ref{fig:final design}, is similar to existing three-coordinate gantry robots in that its support structure is a "gate"-shaped frame. Compared with most chess-playing robots, it has enough stability and workspace to facilitate board setup and player operation, and with only three degrees of freedom, it can somewhat reduce the possibility of accidental injury to humans.
+
+In the structural design of the end-effector, in order to increase the safety of the whole robot, we choose soft material to make the actuator of this robot. In the selection of the actuator, we used the mechanism shown in the Figure. \ref{fig:soft shell}. Compared with the traditional soft robot, the cylindrical cylinder structure has a higher positioning accuracy for the chess pieces, and because of the irregular shape of the chess pieces, this structure has a higher reliability for the grasping of the chess pieces, which is related to the grasping principle of the mechanism, which is described in detail in section 3.2.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.2\linewidth]{soft shell.png}
+    \caption{soft part of the end-effector}
+    \label{fig:soft shell}
+\end{figure}
 
 \section{Introduction to Principles}
 \subsection{Transmission Principle}
@@ -390,7 +402,7 @@ The flow chart of the entire manufacturing process is shown in Figure. \ref{fig:
 \begin{figure}
         \centering
         \includegraphics[width=1\linewidth]{casting.png}
-        \caption{Enter Caption}
+        \caption{casting process for frame structures}
         \label{fig:Casting process for frame structures}
 \end{figure}
 
@@ -422,8 +434,6 @@ By injecting air into the middle cavity, the soft structure expands from flat to
     \caption{process of injecting air}
     \label{fig:process of injecting air}
 \end{figure}
-
-
 
 \section{Assembly}
 The assembly of the whole chess-playing robot is divided into two parts to be carried out separately, the first part is the assembly of the frame mechanism, the slide moving mechanism, and the screw structure, which is assembled by traditional mechanical assembly, such as thread fastening, welding, bayonet connection, thread tapping, or pin and key connection.We also hope to improve the design and manufacture of the sensor part in the future.
